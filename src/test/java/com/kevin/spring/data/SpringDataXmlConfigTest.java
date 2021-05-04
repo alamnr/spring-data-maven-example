@@ -17,6 +17,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -107,8 +110,23 @@ public class SpringDataXmlConfigTest {
 	@Test
 	public void testDerivedQuery() throws ParseException {
 		
-		List<Book> books = repository.QueryThree("Difficult Women");
-		 System.out.println(books); assertThat(books.size(),equalTo(1) );
+		Page<Book> books = repository.findAll(PageRequest.of(2, 3));
+		System.out.println(books.getTotalPages());
+		 System.out.println(books.getSize()); 
+		// System.out.println(books.getContent());
+		 assertThat(books.getSize(),equalTo(3) );
+		
+		Page<Book> bookPage = repository.findByTitleStartingWith("The",PageRequest.of(0, 3));
+			System.out.println(bookPage.getTotalElements());
+			System.out.println(bookPage.getTotalPages());
+			assertThat(bookPage.getContent().size(), equalTo(3));
+			assertThat(bookPage.getTotalPages(), equalTo(4));
+			assertThat(bookPage.getTotalElements(), equalTo(12L));
+		 
+		/*
+		 * List<Book> books = repository.QueryThree("Difficult Women");
+		 * System.out.println(books); assertThat(books.size(),equalTo(1) );
+		 */
 		
 		
 		/*

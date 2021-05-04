@@ -3,6 +3,8 @@ package com.kevin.spring.data;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,6 +20,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	List<Book> findByTitleContaining(String title);
 	
 	List<Book> findByTitleStartingWith(String title);
+	
+	Page<Book> findByTitleStartingWith(String title, Pageable pageable);
 	
 	List<Book> findByTitleEndingWith(String title);
 	
@@ -52,16 +56,16 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	
 	//List<Book> findTop5ByOrderByPriceDesc();
 	
-	@Query("select b from Book b")
+	
 	List<Book> QueryOne();
 	
-	@Query(" from Book ")
+	
 	List<Book> QueryOneOther();
 	
-	@Query("select b from Book b where b.pages > ?1")
+	
 	List<Book> QueryTwo(int pages);
 	
-	@Query("select b from Book b where b.title = :title")
+	
 	List<Book> QueryThree(@Param("title") String title);
 
 }
