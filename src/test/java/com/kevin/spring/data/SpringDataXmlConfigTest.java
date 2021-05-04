@@ -107,11 +107,27 @@ public class SpringDataXmlConfigTest {
 	@Test
 	public void testDerivedQuery() throws ParseException {
 		
+		List<Book> books = repository.QueryThree("Difficult Women");
+		 System.out.println(books); assertThat(books.size(),equalTo(1) );
 		
-		Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse("05/03/2021");
-		Date date2 = new SimpleDateFormat("MM/dd/yyyy").parse("05/05/2021");
-		List<Book> books = repository.findByPublishDateBetween(date1,  date2);
-		 System.out.println(books); assertThat(books.size(),equalTo(12) );
+		
+		/*
+		 * List<Book> books = repository.QueryTwo(50); System.out.println(books);
+		 * assertThat(books.size(),equalTo(7) );
+		 */
+		
+		/*
+		 * List<Book> books = repository.QueryOne(); System.out.println(books);
+		 * assertThat(books.size(),equalTo(12) );
+		 */
+		
+		
+		/*
+		 * Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse("05/03/2021"); Date
+		 * date2 = new SimpleDateFormat("MM/dd/yyyy").parse("05/05/2021"); List<Book>
+		 * books = repository.findByPublishDateBetween(date1, date2);
+		 * System.out.println(books); assertThat(books.size(),equalTo(12) );
+		 */
 		 
 		/*
 		 * List<Book> books = repository.findByPublishDateAfter(new Date());
@@ -262,12 +278,12 @@ public class SpringDataXmlConfigTest {
 	@Test
 	public void testFindOneAll() {
 		Optional<Book> book = repository.findById(1L);
-		assertEquals("Book-1", book.get().getTitle());
+		assertEquals("Animal Farm", book.get().getTitle());
 		book.get().setTitle("War and peace");
 		repository.save(book.get());
 		repository.delete(book.get());
 		List<Book> books = repository.findAll();
-		assertEquals(10, books.size());
+		assertEquals(11, books.size());
 		for (Book book2 : books) {
 			System.out.println(book2);
 		}
