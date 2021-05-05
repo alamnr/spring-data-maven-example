@@ -1,17 +1,18 @@
 package com.kevin.spring.data;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, Long> {
+//public interface BookRepository extends JpaRepository<Book, Long> {
+public interface BookRepository extends BaseRepository<Book, Long> {
 	
 	Book findByTitle(String title);
 	
@@ -29,7 +30,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	
 	List<Book> findByPagesEquals(int pageCount);
 	
-	List<Book> findByPagesGreaterThan(int pageCount);
+	Page<Book> findByPagesGreaterThan(int pageCount, Pageable  pageable);
 	
 	List<Book> findByPagesLessThan(int pageCount);
 	
