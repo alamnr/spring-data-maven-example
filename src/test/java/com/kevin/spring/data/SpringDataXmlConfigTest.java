@@ -51,56 +51,56 @@ public class SpringDataXmlConfigTest {
 			// BigDecimal(75.55+i)));
 			switch (i) {
 			case 1: {
-				bookList.add(new Book(null, "Animal Farm", new Date(), 45 + i, new BigDecimal(75.55 + i)));
+				bookList.add(new Book(null, "Animal Farm", new Date(), 45 + i, new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 2: {
-				bookList.add(new Book(null, "Play It as It Lays", new Date(), 45 + i, new BigDecimal(75.55 + i)));
+				bookList.add(new Book(null, "Play It as It Lays", new Date(), 45 + i, new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 3: {
 				bookList.add(new Book(null, "The Particular Sadness of Lemon Cake", new Date(), 45 + i,
-						new BigDecimal(75.55 + i)));
+						new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 4: {
-				bookList.add(new Book(null, "As I Lay Dying", new Date(), 45 + i, new BigDecimal(75.55 + i)));
+				bookList.add(new Book(null, "As I Lay Dying", new Date(), 45 + i, new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 5: {
-				bookList.add(new Book(null, "Skippy Dies", new Date(), 45 + i, new BigDecimal(75.55 + i)));
+				bookList.add(new Book(null, "Skippy Dies", new Date(), 45 + i, new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 6: {
-				bookList.add(new Book(null, "The God of Small Things", new Date(), 45 + i, new BigDecimal(75.55 + i)));
+				bookList.add(new Book(null, "The God of Small Things", new Date(), 45 + i, new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 7: {
 				bookList.add(new Book(null, "The Unbearable Lightness of Being", new Date(), 45 + i,
-						new BigDecimal(75.55 + i)));
+						new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 8: {
-				bookList.add(new Book(null, "Her Body & Other Parties", new Date(), 45 + i, new BigDecimal(75.55 + i)));
+				bookList.add(new Book(null, "Her Body & Other Parties", new Date(), 45 + i, new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 9: {
 				bookList.add(new Book(null, "Brief Interviews with Hideous Men", new Date(), 45 + i,
-						new BigDecimal(75.55 + i)));
+						new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 10: {
 				bookList.add(new Book(null, "I Have No Mouth & I Must Scream", new Date(), 45 + i,
-						new BigDecimal(75.55 + i)));
+						new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 11: {
 				bookList.add(new Book(null, "No One Belongs Here More Than You", new Date(), 45 + i,
-						new BigDecimal(75.55 + i)));
+						new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 			case 12: {
-				bookList.add(new Book(null, "Difficult Women", new Date(), 45 + i, new BigDecimal(75.55 + i)));
+				bookList.add(new Book(null, "Difficult Women", new Date(), 45 + i, new BigDecimal(75.55 + i), null, null, null, null));
 				break;
 			}
 
@@ -117,13 +117,15 @@ public class SpringDataXmlConfigTest {
 		 * }
 		 */
 		
-		System.out.println(repository.chaterBal(1L));
+		//System.out.println(repository.chaterBal(1L));
 		/*
 		 * for (Book book : repository.findByPagesGreaterThan(45, PageRequest.of(2,
 		 * 1)).getContent()) { System.out.println(book); }
 		 */
 		
 		//System.out.println(repository.findAll(Sort.by("pages")));
+		
+		System.out.println(repository.findAll());
 		
 		/*
 		 * Page<Book> books = repository.findAll(PageRequest.of(2, 3));

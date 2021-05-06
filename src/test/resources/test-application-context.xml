@@ -17,6 +17,8 @@
     <jpa:repositories base-package="com.kevin.spring.data"  />
     <tx:annotation-driven/>
     
+    <jpa:auditing auditor-aware-ref="customAuditorAware"/>
+    
     <jdbc:embedded-database id="dataSource" type="H2"/>
 	
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

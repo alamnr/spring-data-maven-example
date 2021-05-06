@@ -20,7 +20,7 @@ public class SpringDataJavaConfigTest {
 	
 	@Test
 	public void testBookPersistent() {
-		Book book = service.save(new Book(null,"khurram",new Date(),90,new BigDecimal("34.75")));
+		Book book = service.save(new Book(null,"khurram",new Date(),90,new BigDecimal("34.75"), null, null, null, null));
 		assertNotNull(book.getBookId());
 		System.out.println(book);
 	}
