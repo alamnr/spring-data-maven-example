@@ -4,15 +4,23 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 //@Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
+	@Transactional
+	@Modifying
+	@Query("update Book b set b.pages= ?2 where b.title like ?1")
+	int setPageCount(String title, int pageCount);
 	
 	Book findByTitle(String title);
 	

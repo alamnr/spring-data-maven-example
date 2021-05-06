@@ -112,6 +112,10 @@ public class SpringDataXmlConfigTest {
 	@Test
 	public void testDerivedQuery() throws ParseException {
 		
+		
+		System.out.println(repository.setPageCount("%The%", 1000));
+		System.out.println(repository.findAll());
+		
 		/*
 		 * for (Book book : repository.chaterBal(1L,2L,10L)) { System.out.println(book);
 		 * }
@@ -125,7 +129,7 @@ public class SpringDataXmlConfigTest {
 		
 		//System.out.println(repository.findAll(Sort.by("pages")));
 		
-		System.out.println(repository.findAll());
+		
 		
 		/*
 		 * Page<Book> books = repository.findAll(PageRequest.of(2, 3));
