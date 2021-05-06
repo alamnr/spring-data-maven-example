@@ -13,7 +13,8 @@
     	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     
     <context:component-scan  base-package="com.kevin.spring.data"/>
-    <jpa:repositories base-package="com.kevin.spring.data"  base-class="com.kevin.spring.data.BaseRepositoryImpl"  />
+<!--     <jpa:repositories base-package="com.kevin.spring.data" repository-impl-postfix="Impl"  base-class="com.kevin.spring.data.BaseRepositoryImpl"  /> -->
+    <jpa:repositories base-package="com.kevin.spring.data"  />
     <tx:annotation-driven/>
     
     <jdbc:embedded-database id="dataSource" type="H2"/>

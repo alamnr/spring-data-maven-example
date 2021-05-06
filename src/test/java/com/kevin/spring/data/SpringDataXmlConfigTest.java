@@ -31,8 +31,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @ContextConfiguration(locations = "/test-application-context.xml")
 public class SpringDataXmlConfigTest {
 
-	@Autowired
-	BookService service;
+	/*
+	 * @Autowired BookService service;
+	 */
 
 	@Autowired
 	BookRepository repository;
@@ -111,9 +112,12 @@ public class SpringDataXmlConfigTest {
 	@Test
 	public void testDerivedQuery() throws ParseException {
 		
-		for (Book book : repository.findByIds(1L,2L,10L)) {
-			System.out.println(book);
-		}
+		/*
+		 * for (Book book : repository.chaterBal(1L,2L,10L)) { System.out.println(book);
+		 * }
+		 */
+		
+		System.out.println(repository.chaterBal(1L));
 		/*
 		 * for (Book book : repository.findByPagesGreaterThan(45, PageRequest.of(2,
 		 * 1)).getContent()) { System.out.println(book); }
@@ -324,11 +328,9 @@ public class SpringDataXmlConfigTest {
 		// {{add(1L);add(3L);add(4L);}});
 	}
 
-	@Test
-	public void testBokkPersistenceXml() {
-		Book book = service.save(new Book(null, "Logan", new Date(), 0, new BigDecimal(85.5)));
-		assertNotNull(book.getBookId());
-		System.out.println(book);
-	}
-
+	/*
+	 * @Test public void testBokkPersistenceXml() { Book book = service.save(new
+	 * Book(null, "Logan", new Date(), 0, new BigDecimal(85.5)));
+	 * assertNotNull(book.getBookId()); System.out.println(book); }
+	 */
 }

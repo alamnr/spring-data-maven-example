@@ -10,9 +10,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 //public interface BookRepository extends JpaRepository<Book, Long> {
-public interface BookRepository extends BaseRepository<Book, Long> {
+public interface BookRepository extends JpaRepository<Book, Long>,  BaseRepository<Book, Long> {
 	
 	Book findByTitle(String title);
 	
